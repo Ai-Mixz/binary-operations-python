@@ -1,6 +1,5 @@
-from Matrix_Operations.Binary_Ops import Binary_Ops
 from Number import Number as num
-from Binary_Ops import Binary_Ops
+from Binary_ops import Binary_Ops
 
 x = int(input("Please enter a first number: "))
 y = int(input("Please enter second number: "))
