@@ -38,7 +38,7 @@ class Binary_Ops:
 
     @staticmethod
     def pad_bin_list(x, length):
-        """Pads a binary list with leading zeros to match the required length."""
+        # Pads a binary list with leading zeros to match the required length.
         while len(x) < length:
             x.insert(0, 0)  # Add leading zeros
         return x
