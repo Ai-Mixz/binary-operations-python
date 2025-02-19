@@ -8,7 +8,7 @@ class Number:
         return f'{self.bin_num}'
 
     @staticmethod
-    def invert_list(raw_bin):
+    def Reverse_list(raw_bin):
 
         # Define start and end of list(index-wise)
         start = 0
@@ -37,6 +37,6 @@ class Number:
             # Ensure integer division is performed
             num //= 2
 
-        return Number.invert_list(raw_bin)
+        return Number.Reverse_list(raw_bin)
 
 
