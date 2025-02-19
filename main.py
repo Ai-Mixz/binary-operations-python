@@ -1,5 +1,5 @@
 from Number import Number as num
-from Binary_ops import Binary_Ops
+from Binary_Ops import Binary_Ops as Bops
 
 x = int(input("Please enter a first number: "))
 y = int(input("Please enter second number: "))
@@ -12,6 +12,6 @@ print(f'Original: \n'
       f'{a.bin_num}\n'
       f'{b.bin_num}\n')
 
-result = Binary_Ops.binary_addition(a.bin_num,b.bin_num)
+result = Bops.addition_two_positive(a.bin_num,b.bin_num)
 
 print(f'Result: {result}')
