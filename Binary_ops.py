@@ -1,10 +1,12 @@
+from Number import Number as num
+
 class Binary_Ops:
     @staticmethod
-    def binary_addition(a, b):
+    def addition_two_positive(a, b):
 
         # Reverse for easier addition (LSB to MSB)
-        a = Binary_Ops.reverse_list(a)
-        b = Binary_Ops.reverse_list(b)
+        a = num.Reverse_list(a)
+        b = num.Reverse_list(b)
 
         # Pad both lists to equal length
         max_length = max(len(a), len(b))
@@ -26,15 +28,14 @@ class Binary_Ops:
                 c.append(1)
                 carry = 1
             else:
-                c.append(sum_value) # 0 + 1 || 1 + 0
+                c.append(sum_value) # 0 + 1 || 1 + 0 || 0 + 0
                 carry = 0
 
         # If there's a carry left, append it
         if carry:
             c.append(1)
 
-        return Binary_Ops.reverse_list(c)
-
+        return num.Reverse_list(c)
 
     @staticmethod
     def pad_bin_list(x, length):
@@ -42,25 +43,5 @@ class Binary_Ops:
         while len(x) < length:
             x.insert(0, 0)  # Add leading zeros
         return x
-
-    # The purpose of the repeated reverse_list function
-    # is to show prep the binary list for addition
-    @staticmethod
-    def reverse_list(x):
-        # Define start and end of list(index-wise)
-        start = 0
-        end = len(x) - 1
-
-        # when start == end (middle of list)
-        while start < end:
-            # Swap start and finish and move towards middle index
-            x[start], x[end] = x[end], x[start]
-            # Increment and decrement to move towards middle index(s)
-            start += 1
-            end -= 1
-
-        # Return modified list
-        return x
-
 
 
