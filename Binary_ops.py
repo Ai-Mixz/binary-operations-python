@@ -9,7 +9,7 @@ class Binary_Ops:
         # Pad both lists to equal length
         max_length = max(len(a), len(b))
         a = Binary_Ops.pad_bin_list(a, max_length)
-        b = Binary_Ops.pad_bin_list(a, max_length)
+        b = Binary_Ops.pad_bin_list(b, max_length)
 
         c = []
         # Initially the carry will be zero at the first addition
