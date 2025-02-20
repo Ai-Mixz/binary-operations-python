@@ -4,14 +4,16 @@ class Binary_Ops:
     @staticmethod
     def addition_two_positive(a, b):
 
-        # Reverse for easier addition (LSB to MSB)
-        a = num.Reverse_list(a)
-        b = num.Reverse_list(b)
-
         # Pad both lists to equal length
         max_length = max(len(a), len(b))
-        a = Binary_Ops.pad_bin_list(a, max_length)
-        b = Binary_Ops.pad_bin_list(b, max_length)
+        if len(a)< len(b):
+            a = Binary_Ops.pad_bin_list(a, max_length)
+        else:
+            b = Binary_Ops.pad_bin_list(b, max_length)
+
+        # Reverse for correct bit placement and addition
+        a.reverse()
+        b.reverse()
 
         c = []
         # Initially the carry will be zero at the first addition
@@ -35,13 +37,9 @@ class Binary_Ops:
         if carry:
             c.append(1)
 
-        return num.Reverse_list(c)
+        return c[::-1]
 
     @staticmethod
     def pad_bin_list(x, length):
         # Pads a binary list with leading zeros to match the required length.
-        while len(x) < length:
-            x.insert(0, 0)  # Add leading zeros
-        return x
-
-
+        return [0] * (length - len(x)) + x  # Prepend leading zeros
