@@ -1,42 +1,28 @@
-# The Idea behind this class is to create an object which
-# holds a list of bits ( 0 || 1)
+"""
+This class represents a Number object that stores
+a list of bits (0 or 1), representing its binary form.
+"""
 class Number:
+    # Constructor: Initializes a Number object with its binary representation.
     def __init__(self, num):
-       self.bin_num = self.convert_2Bin(num)
+        self.num = self.convert_2Bin(num)
 
+    # Allows the object to be printed directly, returning its binary form as a string.
     def __str__(self):
-        return f'{self.bin_num}'
+        return f'{self.num}'
 
-    @staticmethod
-    def Reverse_list(raw_bin):
-
-        # Define start and end of list(index-wise)
-        start = 0
-        end = len(raw_bin) - 1
-
-        # when start == end (middle of list)
-        while start < end:
-            # Swap start and finish and move towards middle index
-            raw_bin[start], raw_bin[end] = raw_bin[end], raw_bin[start]
-
-            # Increment and decrement to move towards middle index(s)
-            start += 1
-            end -= 1
-
-        # Return modified list
-        return raw_bin
-
+    # Converts a positive integer into its binary representation.
+    # This is a static method since it acts as a utility function.
     @staticmethod
     def convert_2Bin(num):
-        # Raw binary representation (needs to be inverted)
-        raw_bin = []
+        # Handle the special case where num is zero.
+        if num == 0:
+            return [0]
+
+        raw_bin = []  # Stores the binary digits in reverse order.
 
         while num > 0:
-            # Modulo will return 1 or 0 depending on if there is a remainder
-            raw_bin.append(num % 2)
-            # Ensure integer division is performed
-            num //= 2
+            raw_bin.append(num % 2)  # Get the least significant bit.
+            num //= 2  # Perform integer division to shift right.
 
-        return Number.Reverse_list(raw_bin)
-
-
+        return raw_bin[::-1]  # Reverse the list to get the correct order.
